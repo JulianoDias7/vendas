@@ -14,9 +14,11 @@ export default function Cadastros() {
     fetchPessoas();
   }, []);
 
+  const BASE_URL = 'mighty-gerianna-personalprojectjfd-073599bc.koyeb.app:8000/pessoas';
+
   async function fetchPessoas() {
     try {
-      const res = await fetch('http://localhost:8080/pessoas');
+      const res = await fetch(`${BASE_URL}`);
       if (!res.ok) throw new Error('Erro ao buscar pessoas');
       const data = await res.json();
       setClientes(data.filter((p) => p.type === 'Cliente'));
@@ -43,13 +45,13 @@ export default function Cadastros() {
 
     try {
       if (edit) {
-        await fetch(`http://localhost:8080/pessoas/${formData.id}`, {
+        await fetch(`${BASE_URL}/${formData.id}`, {
           method: 'PUT',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(payload),
         });
       } else {
-        await fetch('http://localhost:8080/pessoas', {
+        await fetch(BASE_URL, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(payload),
@@ -85,7 +87,7 @@ export default function Cadastros() {
 
   async function Delete(id) {
     try {
-      await fetch(`http://localhost:8080/pessoas/${id}`, { method: 'DELETE' });
+      await fetch(`${BASE_URL}/${id}`, { method: 'DELETE' });
       await fetchPessoas();
     } catch (error) {
       console.error('Erro ao excluir pessoa:', error);

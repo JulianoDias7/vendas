@@ -10,9 +10,10 @@ export default function Produtos() {
    const [search, setSearch] = useState('');
    const [isOpen, setIsOpen] = useState(false);
    const [formData, setFormData] = useState({ nome: '', descricao: '', preco: '' });
+   const BASE_URL = 'mighty-gerianna-personalprojectjfd-073599bc.koyeb.app:8000/produtos';
    
  useEffect(() => {
-   fetch('http://localhost:8080/produtos')
+   fetch(BASE_URL)
      .then((res) => {
        if (!res.ok) {
          throw new Error('Erro ao buscar produtos');
@@ -23,7 +24,7 @@ export default function Produtos() {
      .catch((error) => console.error('Erro: ', error));
  }, [])
  function deleteProduct(id) {
-   fetch(`http://localhost:8080/produtos/${id}`, { method: 'DELETE' })
+   fetch(`${BASE_URL}/${id}`, { method: 'DELETE' })
      .then((res) => {
        if (!res.ok) throw new Error('Não foi possível deletar o item!');
        return res.text();
@@ -36,7 +37,7 @@ export default function Produtos() {
  }
   async function createProduct(produto) {
     try {
-      const response = await fetch('http://localhost:8080/produtos', {
+      const response = await fetch('', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(produto),
