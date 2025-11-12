@@ -14,7 +14,7 @@ export default function Cadastros() {
     fetchPessoas();
   }, []);
 
-  const BASE_URL = 'mighty-gerianna-personalprojectjfd-073599bc.koyeb.app:8000/pessoas';
+  const BASE_URL = 'https://mighty-gerianna-personalprojectjfd-073599bc.koyeb.app/pessoas';
 
   async function fetchPessoas() {
     try {
@@ -80,7 +80,7 @@ export default function Cadastros() {
         id: pessoa.id,
         nome: pessoa.nome,
         doc: pessoa.doc,
-        email: pessoa.email
+        email: pessoa.email,
       });
     }
   }

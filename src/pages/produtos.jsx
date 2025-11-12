@@ -1,40 +1,38 @@
 //produtos.jsx
 import { useEffect, useState } from 'react';
 import CardProdutos from '../components/CardProdutos';
-import ModalProdutos from '../components/ModalProdutos'
-
-
+import ModalProdutos from '../components/ModalProdutos';
 
 export default function Produtos() {
   const [products, setProduct] = useState([]);
-   const [search, setSearch] = useState('');
-   const [isOpen, setIsOpen] = useState(false);
-   const [formData, setFormData] = useState({ nome: '', descricao: '', preco: '' });
-   const BASE_URL = 'mighty-gerianna-personalprojectjfd-073599bc.koyeb.app:8000/produtos';
-   
- useEffect(() => {
-   fetch(BASE_URL)
-     .then((res) => {
-       if (!res.ok) {
-         throw new Error('Erro ao buscar produtos');
-       }
-       return res.json();
-     })
-     .then((data) => setProduct(data))
-     .catch((error) => console.error('Erro: ', error));
- }, [])
- function deleteProduct(id) {
-   fetch(`${BASE_URL}/${id}`, { method: 'DELETE' })
-     .then((res) => {
-       if (!res.ok) throw new Error('Não foi possível deletar o item!');
-       return res.text();
-     })
-     .then(() => {
-       setProduct((prev) => prev.filter((p) => p.id !== id));
-     })
-     .catch((error) => console.error(error));
-   setIsOpen(false)
- }
+  const [search, setSearch] = useState('');
+  const [isOpen, setIsOpen] = useState(false);
+  const [formData, setFormData] = useState({ nome: '', descricao: '', preco: '' });
+  const BASE_URL = 'https://mighty-gerianna-personalprojectjfd-073599bc.koyeb.app/produtos';
+
+  useEffect(() => {
+    fetch(BASE_URL)
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error('Erro ao buscar produtos');
+        }
+        return res.json();
+      })
+      .then((data) => setProduct(data))
+      .catch((error) => console.error('Erro: ', error));
+  }, []);
+  function deleteProduct(id) {
+    fetch(`${BASE_URL}/${id}`, { method: 'DELETE' })
+      .then((res) => {
+        if (!res.ok) throw new Error('Não foi possível deletar o item!');
+        return res.text();
+      })
+      .then(() => {
+        setProduct((prev) => prev.filter((p) => p.id !== id));
+      })
+      .catch((error) => console.error(error));
+    setIsOpen(false);
+  }
   async function createProduct(produto) {
     try {
       const response = await fetch('', {
@@ -56,7 +54,6 @@ export default function Produtos() {
       console.error('Erro:', error);
     }
   }
-
 
   const produtosFiltrados = products.filter((prod) =>
     prod.nome.toLowerCase().includes(search.toLowerCase())
@@ -106,7 +103,6 @@ export default function Produtos() {
         }}
         formData={formData}
         setFormData={setFormData}
-        
       />
       {console.log(formData)}
     </div>
