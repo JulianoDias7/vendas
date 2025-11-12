@@ -2,6 +2,8 @@
 
 ![Preview do projeto](https://github-readme-stats.vercel.app/api/pin/?username=JulianoDias7&repo=API-Vendas&theme=react)
 
+## [Acesso ao site](https://vendas-b7cj.onrender.com)
+
 ### 🧩 Tecnologias utilizadas
 - **React.js**
 - **Tailwind CSS**
@@ -16,4 +18,4 @@ diretamente no banco **SQLite** que a API gerencia.
 
 ---
 
-💡 *Projeto desenvolvido para estudo de integração entre frontend em React e backend em Java com Spring Boot, utilizando banco de dados SQLite.*
+💡 *Projeto desenvolvido para simples demonstração de integração entre frontend em React e backend em Java com Spring Boot, utilizando banco de dados SQLite.*
