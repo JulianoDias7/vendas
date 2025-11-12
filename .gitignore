@@ -101,8 +101,8 @@ dist
 # vitepress build output
 **/.vitepress/dist
 
-.vscode
-.bin 
+.vscode/
+.bin/ 
 # vitepress cache directory
 **/.vitepress/cache
 
