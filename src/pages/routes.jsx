@@ -1,15 +1,17 @@
 import { Routes, Route } from 'react-router-dom';
 
 import Home from '../pages/home';
-import Sales from '../pages/sales';
-import Reports from './reports';
+import Produtos from '../pages/produtos';
+import Cadastros from './cadastros';
 
 export default function AppRoutes() {
   return (
-    <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/sales" element={<Sales />} />
-      <Route path="/reports" element={<Reports />} />
-    </Routes>
+    <div className="min-h-screen m-4 align-center">
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/produtos" element={<Produtos />} />
+        <Route path="/cadastros" element={<Cadastros />} />
+      </Routes>
+    </div>
   );
 }
