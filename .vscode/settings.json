@@ -1,9 +1,0 @@
-{
-  "bootstrapIntelliSense": {
-    
-    "enable": true,
-    "bsVersion": "5.3.7",
-    "showSuggestions": true,
-    "autoComplete": true
-  }
-}
