@@ -13,7 +13,7 @@ export default function CardProdutos({ id ,nome,descricao,preco, imagem, onDelet
 
   return (
     <div className="w-full flex flex-col shadow-xl rounded-lg">
-      <div className="h-48 flex items-center justify-center p-4 bg-gray-50">
+      <div className="h-48 flex items-center justify-center p-4">
         <img
           className="object-contain h-full max-w-full"
           src={imagem == null ? 'https://placehold.co/400x400' : imagem}
