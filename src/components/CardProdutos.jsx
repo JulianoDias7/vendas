@@ -13,9 +13,9 @@ export default function CardProdutos({ id ,nome,descricao,preco, imagem, onDelet
 
   return (
     <div className="w-full flex flex-col shadow-xl rounded-lg">
-      <div className="mx-auto mt-2 w-3/4">
+      <div className="h-48 flex items-center justify-center p-4 bg-gray-50">
         <img
-          className="w-full h-auto object-contain"
+          className="object-contain h-full max-w-full"
           src={imagem == null ? 'https://placehold.co/400x400' : imagem}
           alt={nome}
         />
